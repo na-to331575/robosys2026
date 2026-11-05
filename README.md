@@ -1,7 +1,7 @@
 # robosys2026
 
 # plusコマンド
-![test](https://github.com/na-to331575/robosys2026/actions/workflows/test.yml/badge.svg)
+![test](https://github.com/<na-to331575>/robosys2026/actions/workflows/test.yml/badge.svg)
 
 ## 必要なソフトウェア
 - Python
