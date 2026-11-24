@@ -1,0 +1,10 @@
+#!/usr/bin/python3
+# SPDX-FileCopyrightText: 2026 Nitta Nanato
+# SPDX-License-Identifier: BSD-3-Clause
+
+import sys
+
+line = sys.stdin.readline()
+weight, reps = line.split()
+one_rm = float(weight) * (1.0 + int(reps) / 40.0)
+print(f"{one_rm:.1f}")
