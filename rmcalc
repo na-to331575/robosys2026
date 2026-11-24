@@ -4,12 +4,34 @@
 
 import sys
 
+
 def calc_1rm(weight, reps):
     if reps == 1:
         return weight
     return weight * (1.0 + reps / 40.0)
 
-for line in sys.stdin:
-    weight, reps = line.split()
-    one_rm = calc_1rm(float(weight),int(reps))
+
+lines = sys.stdin.readlines()
+if not lines:
+    sys.stderr.write("Error: no input\n")
+    sys.exit(1)
+
+for line in lines:
+    parts = line.split()
+    if len(parts) != 2:
+        sys.stderr.write("Error: expected '<weight> <reps>'\n")
+        sys.exit(1)
+
+    try:
+        weight = float(parts[0])
+        reps = int(parts[1])
+    except ValueError:
+        sys.stderr.write("Error: invalid number\n")
+        sys.exit(1)
+
+    if weight <= 0 or reps <= 0:
+        sys.stderr.write("Error: weight and reps must be positive\n")
+        sys.exit(1)
+
+    one_rm = calc_1rm(weight, reps)
     print(f"{one_rm:.1f}")
