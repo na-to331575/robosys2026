@@ -9,7 +9,9 @@
 
 ##インストール方法
 git clone [https://github.com/na-to331575/robosys2026.git](https://github.com/na-to331575/robosys2026.git)
+
 cd robosys2026
+
 chmod +x rmcalc plus
 
 
@@ -25,12 +27,17 @@ chmod +x rmcalc plus
 標準入力から 重量 回数 を半角スペース区切りで渡します。複数行（複数セット）の一括計算にも対応しています。
 
 - 1セット分を計算する場合
+
 $ echo "60 10" | ./rmcalc
+
 75.0
 
 - 複数セット分をまとめて計算する場合
+
 $ printf "60 10\n80 5\n" | ./rmcalc
+
 75.0
+
 90.0
 
 #エラーの仕様
@@ -46,10 +53,13 @@ $ printf "60 10\n80 5\n" | ./rmcalc
 
 #使い方・実行例
 - 1から5までの整数を足す場合
+
 $ seq 5 | ./plus
+
 15
 
 - 小数点を含む数値を足す場合
+
 $printf "1.5\n2.5\3\n" | ./plus
 
 7.0
