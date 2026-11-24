@@ -8,11 +8,11 @@
 
 
 ##インストール方法
-git clone [https://github.com/na-to331575/robosys2026.git](https://github.com/na-to331575/robosys2026.git)
+$git clone [https://github.com/na-to331575/robosys2026.git](https://github.com/na-to331575/robosys2026.git)
 
-cd robosys2026
+$cd robosys2026
 
-chmod +x rmcalc plus
+$chmod +x rmcalc plus
 
 
 ###コマンド一覧
