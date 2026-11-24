@@ -13,13 +13,34 @@ out=$(seq 5 | ./plus)
 [ "$?" = 0 ]      || ng "$LINENO"
 [ "${out}" = 15 ] || ng "$LINENO"
 
-### STRANGE INPUT ###
-out=$(echo あ | ./plus)           #計算できない値を入力してみる
-[ "$?" = 1 ]      || ng "$LINENO" #終了ステータスが1なのを確認
-[ "${out}" = "" ] || ng "$LINENO" #上の行と入れ替えるとダメ（なぜ？）
 
-out=$(echo | ./plus)              #なにも入力しない
-[ "$?" = 1 ]      || ng "$LINENO" #これも異常終了する
+out=$(echo "60 10" | ./rmcalc)
+[ "$?" = 0 ]          || ng "$LINENO"
+[ "${out}" = "75.0" ] || ng "$LINENO"
+
+out=$(echo "80 1" | ./rmcalc)
+[ "$?" = 0 ]          || ng "$LINENO"
+[ "${out}" = "80.0" ] || ng "$LINENO"
+
+out=$(printf "60 10\n80 5\n" | ./rmcalc)
+[ "$?" = 0 ]                 || ng "$LINENO"
+[ "${out}" = $'75.0\n90.0' ] || ng "$LINENO"
+
+
+out=$(echo "あ 10" | ./rmcalc)
+[ "$?" = 1 ]      || ng "$LINENO"
+[ "${out}" = "" ] || ng "$LINENO"
+
+out=$(echo "60" | ./rmcalc)
+[ "$?" = 1 ]      || ng "$LINENO"
+[ "${out}" = "" ] || ng "$LINENO"
+
+out=$(echo "60 -5" | ./rmcalc)
+[ "$?" = 1 ]      || ng "$LINENO"
+[ "${out}" = "" ] || ng "$LINENO"
+
+out=$(printf "" | ./rmcalc)
+[ "$?" = 1 ]      || ng "$LINENO"
 [ "${out}" = "" ] || ng "$LINENO"
 
 [ "${res}" = 0 ] && echo OK
