@@ -4,7 +4,12 @@
 
 import sys
 
+def calc_1rm(weight, reps):
+    if reps == 1:
+        return weight
+    return weight * (1.0 + reps / 40.0)
+
 for line in sys.stdin:
     weight, reps = line.split()
-    one_rm = float(weight) * (1.0 + int(reps) / 40.0)
+    one_rm = calc_1rm(float(weight),int(reps))
     print(f"{one_rm:.1f}")
