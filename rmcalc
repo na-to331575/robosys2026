@@ -4,7 +4,7 @@
 
 import sys
 
-line = sys.stdin.readline()
-weight, reps = line.split()
-one_rm = float(weight) * (1.0 + int(reps) / 40.0)
-print(f"{one_rm:.1f}")
+for line in sys.stdin:
+    weight, reps = line.split()
+    one_rm = float(weight) * (1.0 + int(reps) / 40.0)
+    print(f"{one_rm:.1f}")
